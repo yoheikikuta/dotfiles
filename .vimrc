@@ -147,10 +147,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
-endif
-
 if dein#check_install()
   call dein#install()
 endif
