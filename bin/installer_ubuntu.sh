@@ -8,7 +8,6 @@ REMOTE_URL="https://github.com/yoheikikuta/dotfiles.git"
 apt-get update
 apt-get -y install vim git fish
 chsh -s /usr/bin/fish
-exec fish
 
 
 # Download
@@ -32,3 +31,7 @@ do
   ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
 echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
+
+
+# Start fish shell
+exec fish
