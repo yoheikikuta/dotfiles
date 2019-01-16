@@ -1,8 +1,0 @@
-" set cases
-set ignorecase
-set smartcase
-
-" key mappling
-inoremap <silent> jj <ESC>
-nnoremap ; :
-nnoremap : ;
