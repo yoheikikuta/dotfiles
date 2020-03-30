@@ -17,11 +17,11 @@ ifeq ($(BREW),)
 endif
 
 .PHONY: all_osx \
-        all_instance_ubuntu \
+        all_ubuntu \
         build_brew
 
 all_osx: clean setup vscode_setup done
-all_instance_ubuntu: clean prerequisite build_brew brew_bundle setup done
+all_ubuntu: clean setup done
 setup: zsh_setup tmux_setup vim_setup
 
 build_brew:
@@ -41,10 +41,6 @@ clean:
 	rm -rf "$(HOME)/.tmux.conf"
 	rm -rf "$(HOME)/.vim"
 	@echo 'done'
-
-prerequisite:
-    sudo apt update
-	sudo apt install -y make clang
 
 vim_setup:
 	$(PWD)/vim/bin/setup.sh
