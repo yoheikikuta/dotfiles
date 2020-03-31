@@ -22,12 +22,12 @@ endif
 
 all_osx: clean setup vscode_setup done
 all_ubuntu: clean setup done
-setup: zsh_setup tmux_setup vim_setup
+setup: zsh_setup tmux_setup vim_setup fish_setup
 
 build_brew:
 	$(BREW_COMMAND)
 brew_bundle:
-	brew install gcc python3 tmux wget zsh
+	brew install gcc python3 tmux wget zsh fish peco
 brew_bundle_opt:
 	brew install coreutils htop tree bat ghq
 brew_bundle_cask:
@@ -41,6 +41,9 @@ clean:
 	rm -rf "$(HOME)/.tmux.conf"
 	rm -rf "$(HOME)/.vim"
 	@echo 'done'
+
+fish_setup:
+	$(PWD)/fish/bin/setup.sh
 
 vim_setup:
 	$(PWD)/vim/bin/setup.sh
