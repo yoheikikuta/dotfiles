@@ -1,3 +1,3 @@
 
 
-ln -s `pwd`/zsh/config.d/zshrc $HOME/.zshrc
+ln -s $HOME/.dotfiles/zsh/config.d/zshrc $HOME/.zshrc
