@@ -43,19 +43,19 @@ clean:
 	@echo 'done'
 
 fish_setup:
-	$(PWD)/fish/bin/setup.sh
+	sh $(PWD)/fish/bin/setup.sh
 
 vim_setup:
-	$(PWD)/vim/bin/setup.sh
+	sh $(PWD)/vim/bin/setup.sh
 
 vscode_setup:
-	$(PWD)/vscode/bin/setup.sh
+	sh $(PWD)/vscode/bin/setup.sh
 
 tmux_setup:
-	$(PWD)/tmux/bin/setup.sh
+	sh $(PWD)/tmux/bin/setup.sh
 
 zsh_setup:
-	$(PWD)/zsh/bin/setup.sh
+	sh $(PWD)/zsh/bin/setup.sh
 
 done:
 	@echo ""
