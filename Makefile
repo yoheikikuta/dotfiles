@@ -38,6 +38,7 @@ clean:
 	@echo 'remove symbolic links'
 	rm -rf "$(HOME)/.vimrc"
 	rm -rf "$(HOME)/.zshrc"
+	rm -rf "$(HOME)/.config/fish/config.fish"
 	rm -rf "$(HOME)/.tmux.conf"
 	rm -rf "$(HOME)/.vim"
 	@echo 'done'
