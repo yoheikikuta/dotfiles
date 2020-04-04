@@ -1,4 +1,6 @@
-ms-azuretools.vscode-docker
+hnw.vscode-auto-open-markdown-preview
+marchrock.vscode-ghq
+azuretools.vscode-docker
 ms-python.python
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
