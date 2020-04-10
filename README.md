@@ -1,4 +1,6 @@
 # dotfiles
+This repository is based on https://github.com/himkt/dotfiles.  
+Thanks for publishing a great repository!
 
 Requirements: git
 
