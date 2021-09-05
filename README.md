@@ -23,6 +23,8 @@ make brew_bundle
 make brew_bundle_opt
 make brew_bundle_cask
 make all_osx
+make macos_config_setup
+sudo reboot
 ```
 
 ## ubuntu (on GCP VM instance)
