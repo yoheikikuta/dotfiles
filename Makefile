@@ -32,7 +32,7 @@ brew_bundle_opt:
 	brew install coreutils htop tree bat ghq
 brew_bundle_cask:
 	brew install google-chrome google-backup-and-sync --cask
-	brew install 1password iterm2 visual-studio-code  --cask
+	brew install 1password visual-studio-code  --cask
 
 clean:
 	@echo 'remove symbolic links'
