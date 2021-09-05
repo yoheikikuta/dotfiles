@@ -62,6 +62,9 @@ zsh_setup:
 git_setup:
 	sh $(PWD)/git/bin/setup.sh
 
+macos_config_setup:
+	sh $(PWD)/macos/bin/setup.sh
+
 done:
 	@echo ""
 	@echo "### Finish installing dotfiles!"
