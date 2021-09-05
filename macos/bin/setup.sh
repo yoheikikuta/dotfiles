@@ -33,15 +33,17 @@ defaults -currentHost write -g $modifiermapping -array-add "
 ### General UI/UX  
 ##################################################
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+sudo nvram StartupMute=%01
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# Trackpad: increase tracking spped
 defaults write NSGlobalDomain com.apple.mouse.scaling 0.7
 
 # Finder: show hidden files by default
@@ -60,3 +62,5 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 # Keyboard: set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# Keyboard: turn off live conversion
+defaults write com.apple.inputmethod.Kotoeri 'JIMPrefLiveConversionKey' -bool false
