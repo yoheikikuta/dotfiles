@@ -5,8 +5,8 @@ RED        := $(shell tput setaf 1)
 NOCOLOR    := $(shell tput sgr0)
 
 ifeq ($(UNAME_S),Darwin)
-	BREW_COMPILER := /usr/bin/ruby -e
-	BREW_SOURCE := https://raw.githubusercontent.com/Homebrew/install/master/install
+	BREW_COMPILER := /bin/bash -c
+	BREW_SOURCE := https://raw.githubusercontent.com/Homebrew/install/master/install.sh
 else
 	BREW_COMPILER := sh -c
 	BREW_SOURCE := https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh
@@ -31,8 +31,8 @@ brew_bundle:
 brew_bundle_opt:
 	brew install coreutils htop tree bat ghq
 brew_bundle_cask:
-	brew cask install google-chrome google-backup-and-sync
-	brew cask install 1password iterm2 visual-studio-code
+	brew install google-chrome google-backup-and-sync --cask
+	brew install 1password iterm2 visual-studio-code  --cask
 
 clean:
 	@echo 'remove symbolic links'
