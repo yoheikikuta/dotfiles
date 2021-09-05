@@ -9,6 +9,8 @@ export USER=$(whoami)
 export EDITOR=vim
 export XDG_CONFIG_HOME=$HOME/.config
 
+export PATH=$PATH:/opt/homebrew/bin
+
 export PATH=$PATH:$HOME/.dotfiles/bin
 export PATH=$HOME/.local/bin:$PATH
 
