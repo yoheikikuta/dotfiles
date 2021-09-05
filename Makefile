@@ -22,7 +22,7 @@ endif
 
 all_osx: clean setup vscode_setup done
 all_ubuntu: clean setup done
-setup: zsh_setup tmux_setup vim_setup fish_setup
+setup: zsh_setup tmux_setup vim_setup fish_setup git_setup
 
 build_brew:
 	$(BREW_COMMAND)
@@ -41,6 +41,7 @@ clean:
 	rm -rf "$(HOME)/.config/fish/config.fish"
 	rm -rf "$(HOME)/.tmux.conf"
 	rm -rf "$(HOME)/.vim"
+	rm -rf "$(HOME)/.gitconfig"
 	@echo 'done'
 
 fish_setup:
@@ -57,6 +58,9 @@ tmux_setup:
 
 zsh_setup:
 	sh $(PWD)/zsh/bin/setup.sh
+
+git_setup:
+	sh $(PWD)/git/bin/setup.sh
 
 done:
 	@echo ""
