@@ -18,6 +18,7 @@ Initial setup:
 ```
 git clone https://github.com/yoheikikuta/dotfiles.git $HOME/.dotfiles && cd $HOME/.dotfiles
 make build_brew
+make zsh_setup && source $HOME/.zshrc
 make brew_bundle
 make brew_bundle_opt
 make brew_bundle_cask
