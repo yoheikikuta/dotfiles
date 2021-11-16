@@ -2,7 +2,7 @@
 ### Modifier key mapping
 ##################################################
 # Need to set modifiremapping of your machine
-modifiermapping="com.apple.keyboard.modifiermapping.1452-641-0"
+modifiermapping="com.apple.keyboard.modifiermapping.1452-834-0"
 # caps lock <-> control
 defaults -currentHost write -g $modifiermapping -array-add "
 <dict>
