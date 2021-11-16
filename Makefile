@@ -31,7 +31,7 @@ brew_bundle:
 brew_bundle_opt:
 	brew install coreutils htop tree bat ghq
 brew_bundle_cask:
-	brew install google-chrome google-backup-and-sync --cask
+	brew install google-chrome --cask
 	brew install 1password visual-studio-code  --cask
 
 clean:
