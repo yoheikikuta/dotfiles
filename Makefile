@@ -13,7 +13,7 @@ else
 endif
 
 ifeq ($(BREW),)
-	BREW_COMMAND := yes ' '| $(BREW_COMPILER) "$$(curl -fsSL $(BREW_SOURCE))"
+	BREW_COMMAND := which brew >/dev/null 2>&1 || $(BREW_COMPILER) "$$(curl -fsSL $(BREW_SOURCE))"
 endif
 
 .PHONY: all_osx \
