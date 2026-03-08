@@ -1,8 +1,0 @@
-{
-    "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": true,
-    "python.linting.pep8Args": [
-        "--ignore=E111,E114,E125,E231,E501"
-    ],
-    "window.zoomLevel": -1
-}

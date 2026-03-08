@@ -1,47 +1,45 @@
 # dotfiles
-This repository is based on https://github.com/himkt/dotfiles.  
-Thanks for publishing a great repository!
 
-Requirements: git
+Nix-based dotfiles for macOS (nix-darwin + home-manager).
 
+## Setup from scratch
 
-## osx
+### 1. Install Nix
 
-Updating dotfiles:
-
-```
-make all_osx
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
-Initial setup:
+### 2. Clone this repo
 
-```
-git clone https://github.com/yoheikikuta/dotfiles.git $HOME/.dotfiles && cd $HOME/.dotfiles
-make build_brew
-make zsh_setup && source $HOME/.zshrc
-make brew_bundle
-make brew_bundle_opt
-make brew_bundle_cask
-make all_osx
-make macos_config_setup
-sudo reboot
+```sh
+git clone https://github.com/yoheikikuta/dotfiles.git
+cd dotfiles
 ```
 
-## ubuntu (on GCP VM instance)
+### 3. Install nix-darwin (first time only)
 
-Updating dotfiles:
-
-```
-make all_ubuntu
+```sh
+sudo nix run nix-darwin -- switch --flake .
 ```
 
-Initial setup:
+### 4. Subsequent updates
 
+```sh
+sudo darwin-rebuild switch --flake .
 ```
-git clone https://github.com/yoheikikuta/dotfiles.git $HOME/.dotfiles && cd $HOME/.dotfiles
-sudo apt update && sudo apt install -y make clang
-make build_brew
-echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>  ~/.bashrc && source ~/.bashrc
-make brew_bundle
-make all_ubuntu
-```
+
+## What's managed
+
+| Tool | Method |
+|------|--------|
+| git | Nix (home-manager) |
+| claude-code | Nix (home-manager) |
+| Google Chrome | Homebrew cask |
+| VSCode | Homebrew cask |
+| 1Password | Homebrew cask |
+| Codex | Homebrew formula |
+
+## Adding a new machine
+
+Add a new entry in `flake.nix` under `darwinConfigurations` with the machine's hostname (`hostname -s`).
