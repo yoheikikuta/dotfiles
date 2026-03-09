@@ -24,6 +24,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.yoheikikuta = import ./modules/home.nix;
         }
       ];
