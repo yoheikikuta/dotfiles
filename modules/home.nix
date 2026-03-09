@@ -12,6 +12,7 @@
     userName = "yoheikikuta";
     userEmail = "diracdiego@gmail.com";
     settings = {
+      core.editor = "vim -c \"set fenc=utf-8\"";
       commit.gpgsign = true;
       user.signingKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkCkwlP4g9fje5DKsPmLv4XYPr+aFreDLJkzoENd0Q4Pjy4HBgucYKoPMP99lqdwbPo/F8AbXVSGX/xe5Jq41ptQVwQAAWBAsi0kUtiBpGjEoCdsP7MxJierFsZTEm0zOXd/qTMdDAbes242mUYP4nCjlmPV+Pcid5KBlXzwVkqxf3PhSE8Qp09mQqbb9Z8shlHSESkpHALnodkYmFVHg5ffeKssHZqnu3Qy05WPMLEjrXXVMaqFCFYJ0XlR5S54eDsYRV/lZiYju38MliUBEPgaGQ2Y0rjUPuShomHFEP4FYymeShS/Wt7v1GHerfkuvpLz/HI+WomxMabOEGo5KqAjQyzyW+0UOgX7NXvo6XK2Ujsca8QYTADe+B86sxRqcq46wDhh9j+7XlnbbRle6FRG/PjG9tE0SieNCmYnmDUaOh8apGRvP7srhA6WAx/QZMIW4J3ffAO8Dq9ZEdGsR0BQA+yq+d40aWpAoIwZSJ8YCkRHfm5vRPWZceazNKxD8=";
       gpg = {
