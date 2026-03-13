@@ -17,9 +17,11 @@
     };
     casks = [
       "google-chrome"
+      "cmux"
       "visual-studio-code"
       "1password"
       "codex-app"
+      "raycast"
     ];
     brews = [];
   };

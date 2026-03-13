@@ -1,0 +1,5 @@
+{
+    "python.languageserver": "None",
+    "python.useEnvironmentsExtension": "false",
+    "remote.SSH.connectTimeout": 120
+}
