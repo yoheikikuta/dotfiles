@@ -26,6 +26,19 @@
     brews = [];
   };
 
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToControl = true;
+
+  system.defaults.NSGlobalDomain = {
+    # Key repeat rate (lower = faster, default 2 = 30ms)
+    KeyRepeat = 1;
+    # Delay before key repeat starts (lower = faster, default 15 = 225ms)
+    InitialKeyRepeat = 5;
+  };
+
+  # Mouse tracking speed (0.0 - 3.0, default 1.0)
+  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = 2.5;
+
   # nix-darwin requires this
   system.stateVersion = 5;
 }

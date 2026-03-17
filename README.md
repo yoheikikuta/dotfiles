@@ -34,7 +34,7 @@ sudo nix run nix-darwin -- switch --flake .
 ### 5. Subsequent updates
 
 ```sh
-sudo darwin-rebuild switch --flake .
+sudo /run/current-system/sw/bin/darwin-rebuild switch --flake .
 ```
 
 ### 6. SSH key setup (after 1Password sign-in)
