@@ -33,11 +33,23 @@
     # Key repeat rate (lower = faster, default 2 = 30ms)
     KeyRepeat = 1;
     # Delay before key repeat starts (lower = faster, default 15 = 225ms)
-    InitialKeyRepeat = 5;
+    InitialKeyRepeat = 15;
   };
 
   # Mouse tracking speed (0.0 - 3.0, default 1.0)
-  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = 2.5;
+  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = 3.0;
+
+  # Tap to click
+  system.defaults.trackpad.Clicking = true;
+  system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
+
+  # Dock
+  system.defaults.dock = {
+    autohide = true;
+    tilesize = 16;
+    # Hot corner: bottom-left -> screen saver
+    wvous-bl-corner = 5;
+  };
 
   # nix-darwin requires this
   system.stateVersion = 5;
