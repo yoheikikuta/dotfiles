@@ -51,6 +51,10 @@
     wvous-bl-corner = 5;
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+  ];
+
   # nix-darwin requires this
   system.stateVersion = 5;
 }

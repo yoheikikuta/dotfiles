@@ -40,9 +40,30 @@
     fi
   '';
 
+  home.file.".config/ghostty/config" = {
+    source = ../config/ghostty;
+  };
+
   home.file."Library/Application Support/Code/User/settings.json" = {
     source = ../config/vscode-settings.json;
     force = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    plugins = [
+      { name = "zsh-completions"; src = pkgs.zsh-completions; }
+      { name = "zsh-autosuggestions"; src = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions"; }
+      { name = "zsh-syntax-highlighting"; src = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting"; file = "zsh-syntax-highlighting.zsh"; }
+    ];
+  };
+
+  programs.starship = {
+    enable = true;
+  };
+
+  programs.mise = {
+    enable = true;
   };
 
   programs.home-manager.enable = true;
