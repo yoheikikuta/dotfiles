@@ -1,10 +1,13 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, config, ... }: {
   home.username = "yoheikikuta";
   home.homeDirectory = lib.mkForce "/Users/yoheikikuta";
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
     claude-code
+    awscli2
+    age
+    sops
   ];
 
   programs.git = {
@@ -64,6 +67,15 @@
 
   programs.mise = {
     enable = true;
+  };
+
+  sops = {
+    defaultSopsFile = ../secrets/aws.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    secrets.aws_config = {
+      path = "${config.home.homeDirectory}/.aws/config";
+    };
   };
 
   programs.home-manager.enable = true;

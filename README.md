@@ -37,7 +37,22 @@ sudo nix run nix-darwin -- switch --flake .
 sudo /run/current-system/sw/bin/darwin-rebuild switch --flake .
 ```
 
-### 6. SSH key setup (after 1Password sign-in)
+### 6. Restore age key for secrets (sops-nix)
+
+Secrets (e.g. `~/.aws/config`) are encrypted with [sops-nix](https://github.com/Mic92/sops-nix) using an age key stored in 1Password.
+
+1. Retrieve the age private key from 1Password
+2. Restore it to the correct location:
+
+```sh
+mkdir -p ~/.config/sops/age
+# paste the key content saved in 1Password
+vim ~/.config/sops/age/keys.txt
+```
+
+`darwin-rebuild switch` will then automatically decrypt and place all secrets.
+
+### 7. SSH key setup (after 1Password sign-in)
 
 SSH authentication and commit signing are managed via 1Password SSH agent.
 
@@ -57,6 +72,7 @@ Once done, SSH access and signed commits work automatically.
 | claude-code | Nix (home-manager) |
 | SSH config (1Password agent) | Nix (home-manager) |
 | VSCode (settings + extensions) | Nix (home-manager) |
+| AWS CLI + config (SSO) | Nix (home-manager) + sops-nix |
 | Google Chrome | Homebrew cask |
 | VSCode app | Homebrew cask |
 | 1Password | Homebrew cask |
