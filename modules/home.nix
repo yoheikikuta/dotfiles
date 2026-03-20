@@ -8,6 +8,7 @@
     awscli2
     age
     sops
+    ghq
   ];
 
   programs.git = {
@@ -22,6 +23,7 @@
         format = "ssh";
         ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
+      ghq.root = "~/work";
     };
   };
 
@@ -34,6 +36,10 @@
         IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     '';
   };
+
+  home.activation.createWorkDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/work
+  '';
 
   home.activation.installVSCodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if command -v code &> /dev/null; then
