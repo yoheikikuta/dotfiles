@@ -36,8 +36,8 @@
     InitialKeyRepeat = 15;
   };
 
-  # Mouse tracking speed (0.0 - 3.0, default 1.0)
-  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = 3.0;
+  # Trackpad tracking speed (default 1.0, System Preferences max is 3.0)
+  system.defaults.NSGlobalDomain."com.apple.trackpad.scaling" = 5.0;
 
   # Tap to click
   system.defaults.trackpad.Clicking = true;
