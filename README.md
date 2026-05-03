@@ -37,7 +37,7 @@ vim ~/.config/sops/age/keys.txt
 
 ### 5. Install nix-darwin
 
-If the hostname (`hostname -s`) differs from `Yoheis-MacBook-Air`, add a new entry in `flake.nix` under `darwinConfigurations` first.
+The configuration name in `flake.nix` must match `hostname -s`. If it does not, add or rename an entry under `darwinConfigurations` first.
 
 For the first activation:
 
@@ -82,32 +82,6 @@ Update flake inputs:
 ```sh
 nix flake update
 ```
-
-## What's Managed
-
-| Tool | Method |
-|------|--------|
-| git (config + commit signing) | Nix (home-manager) |
-| SSH config (1Password agent) | Nix (home-manager) |
-| VSCode (settings + extensions) | Nix (home-manager) |
-| Ghostty config | Nix (home-manager) |
-| AWS CLI + config (SSO) | Nix (home-manager) + sops-nix |
-| claude-code | Nix (home-manager) |
-| ghq | Nix (home-manager) |
-| bat | Nix (home-manager) |
-| fzf | Nix (home-manager) |
-| age / sops | Nix (home-manager) |
-| zsh plugins | Nix (home-manager) |
-| starship | Nix (home-manager) |
-| mise | Nix (home-manager) |
-| Google Chrome | Homebrew cask |
-| cmux | Homebrew cask |
-| VSCode app | Homebrew cask |
-| 1Password | Homebrew cask |
-| Codex App | Homebrew cask |
-| Raycast | Homebrew cask |
-| Hack Nerd Font | Nix (nix-darwin) |
-| macOS defaults | Nix (nix-darwin) |
 
 ## Adding A New Machine
 
