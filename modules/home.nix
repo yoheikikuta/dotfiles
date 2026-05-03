@@ -9,6 +9,8 @@
     age
     sops
     ghq
+    bat
+    fzf
   ];
 
   programs.git = {
