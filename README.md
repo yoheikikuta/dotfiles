@@ -2,7 +2,7 @@
 
 Nix-based dotfiles for macOS (nix-darwin + home-manager).
 
-## Setup from scratch
+## Setup From Scratch
 
 ### 1. Install Homebrew
 
@@ -23,26 +23,11 @@ git clone https://github.com/yoheikikuta/dotfiles.git
 cd dotfiles
 ```
 
-### 4. Install nix-darwin (first time only)
+### 4. Restore age key for secrets
 
-If the hostname (`hostname -s`) differs from `Yoheis-MacBook-Air`, add a new entry in `flake.nix` under `darwinConfigurations` first.
+Secrets, such as `~/.aws/config`, are encrypted with [sops-nix](https://github.com/Mic92/sops-nix) using an age key stored in 1Password.
 
-```sh
-sudo nix run nix-darwin -- switch --flake .
-```
-
-### 5. Subsequent updates
-
-```sh
-sudo /run/current-system/sw/bin/darwin-rebuild switch --flake .
-```
-
-### 6. Restore age key for secrets (sops-nix)
-
-Secrets (e.g. `~/.aws/config`) are encrypted with [sops-nix](https://github.com/Mic92/sops-nix) using an age key stored in 1Password.
-
-1. Retrieve the age private key from 1Password
-2. Restore it to the correct location:
+Restore the age private key before running `darwin-rebuild`, otherwise secret activation will fail.
 
 ```sh
 mkdir -p ~/.config/sops/age
@@ -50,9 +35,23 @@ mkdir -p ~/.config/sops/age
 vim ~/.config/sops/age/keys.txt
 ```
 
-`darwin-rebuild switch` will then automatically decrypt and place all secrets.
+### 5. Install nix-darwin
 
-### 7. SSH key setup (after 1Password sign-in)
+If the hostname (`hostname -s`) differs from `Yoheis-MacBook-Air`, add a new entry in `flake.nix` under `darwinConfigurations` first.
+
+For the first activation:
+
+```sh
+sudo nix run nix-darwin -- switch --flake .
+```
+
+For subsequent updates:
+
+```sh
+sudo /run/current-system/sw/bin/darwin-rebuild switch --flake .
+```
+
+### 6. SSH key setup
 
 SSH authentication and commit signing are managed via 1Password SSH agent.
 
@@ -64,21 +63,52 @@ SSH authentication and commit signing are managed via 1Password SSH agent.
 
 Once done, SSH access and signed commits work automatically.
 
-## What's managed
+## Daily Usage
+
+Check the flake:
+
+```sh
+nix flake check --show-trace
+```
+
+Apply changes:
+
+```sh
+sudo /run/current-system/sw/bin/darwin-rebuild switch --flake .
+```
+
+Update flake inputs:
+
+```sh
+nix flake update
+```
+
+## What's Managed
 
 | Tool | Method |
 |------|--------|
 | git (config + commit signing) | Nix (home-manager) |
-| claude-code | Nix (home-manager) |
 | SSH config (1Password agent) | Nix (home-manager) |
 | VSCode (settings + extensions) | Nix (home-manager) |
+| Ghostty config | Nix (home-manager) |
 | AWS CLI + config (SSO) | Nix (home-manager) + sops-nix |
+| claude-code | Nix (home-manager) |
+| ghq | Nix (home-manager) |
+| bat | Nix (home-manager) |
+| fzf | Nix (home-manager) |
+| age / sops | Nix (home-manager) |
+| zsh plugins | Nix (home-manager) |
+| starship | Nix (home-manager) |
+| mise | Nix (home-manager) |
 | Google Chrome | Homebrew cask |
+| cmux | Homebrew cask |
 | VSCode app | Homebrew cask |
 | 1Password | Homebrew cask |
 | Codex App | Homebrew cask |
 | Raycast | Homebrew cask |
+| Hack Nerd Font | Nix (nix-darwin) |
+| macOS defaults | Nix (nix-darwin) |
 
-## Adding a new machine
+## Adding A New Machine
 
 Add a new entry in `flake.nix` under `darwinConfigurations` with the machine's hostname (`hostname -s`).
